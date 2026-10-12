@@ -1,0 +1,91 @@
+import { useCallback, useEffect, useState } from "react";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { BankSyncButton } from "@/components/BankSyncButton";
+
+type Account = { id: string; account_name: string; account_type: string; last_four: string | null };
+type Txn = { id: string; date: string; amount: number; category: string | null; merchant: string | null };
+
+// Phase 0 dashboard: only proves the Setu round trip. Real UI comes later.
+export default function Dashboard() {
+  const [accounts, setAccounts] = useState<Account[]>([]);
+  const [txns, setTxns] = useState<Txn[]>([]);
+
+  const load = useCallback(async () => {
+    const acc = await supabase.from("accounts").select("*").order("created_at", { ascending: false });
+    setAccounts((acc.data ?? []) as Account[]);
+    const tx = await supabase.from("transactions").select("*").order("date", { ascending: false }).limit(25);
+    setTxns((tx.data ?? []) as Txn[]);
+  }, []);
+
+  useEffect(() => {
+    // === SETU CALLBACK HANDLING: same logic as the old app's Dashboard. Do not change. ===
+    const triggerSync = async (consentId: string) => {
+      window.history.replaceState({}, "", "/dashboard");
+      const toastId = toast.loading("Syncing your financial data...");
+      try {
+        const { error } = await supabase.functions.invoke("sync-bank-data", {
+          body: { mode: "FETCH_DATA", consentId },
+        });
+        if (error) throw error;
+        toast.success("Financial data synced!", { id: toastId });
+        await load();
+      } catch (err: unknown) {
+        console.error("Sync error:", err);
+        toast.error("Sync failed: " + (err instanceof Error ? err.message : "Unknown error"), { id: toastId });
+      }
+    };
+
+    const handleSetuCallback = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlConsentId = params.get("id") || params.get("consentId");
+      const success = params.get("success");
+
+      if (urlConsentId && success === "true") {
+        sessionStorage.removeItem("setu_consent_pending");
+        await triggerSync(urlConsentId);
+      } else if (urlConsentId && !success) {
+        sessionStorage.setItem("setu_consent_pending", window.location.search);
+      }
+    };
+    // === END SETU CALLBACK HANDLING ===
+
+    void handleSetuCallback();
+    void load();
+  }, [load]);
+
+  return (
+    <div className="mx-auto max-w-2xl space-y-6 p-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">BachatBuddy (Phase 0)</h1>
+        <button className="text-sm underline" onClick={() => void supabase.auth.signOut()}>
+          Sign out
+        </button>
+      </div>
+
+      <BankSyncButton />
+
+      <section>
+        <h2 className="mb-2 font-semibold">Accounts ({accounts.length})</h2>
+        <ul className="text-sm">
+          {accounts.map((a) => (
+            <li key={a.id}>
+              {a.account_name} - {a.account_type}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-2 font-semibold">Latest transactions ({txns.length} shown)</h2>
+        <ul className="text-sm">
+          {txns.map((t) => (
+            <li key={t.id}>
+              {String(t.date ?? "").slice(0, 10)} | {t.merchant ?? "-"} | {t.category ?? "-"} | {t.amount}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
+}

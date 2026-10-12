@@ -1,0 +1,16 @@
+# Files the coding agent must NEVER change. One path per line.
+# Hashes live in PROTECTED.sha256 (created by scripts/protect-freeze.sh, human only).
+
+# --- Setu frontend integration (copied unchanged from the old app) ---
+src/lib/setuService.ts
+src/components/BankSyncButton.tsx
+
+# --- Guard rails ---
+AGENTS.md
+PROTECTED_PATHS.txt
+scripts/verify-protected.sh
+scripts/pre-commit.sh
+scripts/install-hooks.sh
+scripts/protect-freeze.sh
+scripts/port-setu.sh
+.github/workflows/verify-protected.yml
