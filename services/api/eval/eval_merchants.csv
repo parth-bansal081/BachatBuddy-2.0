@@ -1,0 +1,138 @@
+raw_narration,expected_name,expected_category
+UPI/DR/260181590830/SWIGGY/HDFC/swiggy@ybl/Payment,Swiggy,Food & Dining
+UPI-SWIGGY-swiggy@okhdfcbank-ICIC0000456-131860913909-UPI,Swiggy,Food & Dining
+UPI/DR/960308246281/SWIGGY/UTIB/swiggy@oksbi/Order 82199,Swiggy,Food & Dining
+UPI/DR/351819093786/ZOMATO/KKBK/zomato@oksbi/Payment,Zomato,Food & Dining
+UPI-ZOMATO-zomato@paytm-ICIC0000456-754323194875-UPI,Zomato,Food & Dining
+UPI/DR/749118625276/ZOMATO/YESB/zomato@ibl/Order 18955,Zomato,Food & Dining
+UPI/DR/597971147104/DOMINOS PIZZA/KKBK/dominospizza@ibl/Payment,Domino's,Food & Dining
+UPI-DOMINOS PIZZA-dominospizza@ibl-UTIB0000789-746507529170-UPI,Domino's,Food & Dining
+UPI/DR/342366712768/DOMINOS PIZZA/HDFC/dominospizza@okaxis/Order 68465,Domino's,Food & Dining
+UPI/DR/632122330792/MCDONALDS/KKBK/mcdonalds@oksbi/Payment,McDonald's,Food & Dining
+UPI-MCDONALDS-mcdonalds@ybl-HDFC0000123-268599528907-UPI,McDonald's,Food & Dining
+UPI/DR/866661760313/MCDONALDS/ICIC/mcdonalds@okaxis/Order 15901,McDonald's,Food & Dining
+UPI/DR/928159013962/STARBUCKS/YESB/starbucks@ibl/Payment,Starbucks,Food & Dining
+UPI-STARBUCKS-starbucks@oksbi-HDFC0000123-957117777412-UPI,Starbucks,Food & Dining
+UPI/DR/154728038528/STARBUCKS/YESB/starbucks@paytm/Order 41485,Starbucks,Food & Dining
+UPI/DR/538885393363/CHAI POINT/SBIN/chaipoint@okaxis/Payment,Chai Point,Food & Dining
+UPI-CHAI POINT-chaipoint@okhdfcbank-UTIB0000789-500474395755-UPI,Chai Point,Food & Dining
+UPI/DR/131373537990/CHAI POINT/ICIC/chaipoint@ibl/Order 51163,Chai Point,Food & Dining
+UPI/DR/265167612220/BIGBASKET/ICIC/bigbasket@okaxis/Payment,BigBasket,Groceries
+UPI-BIGBASKET-bigbasket@okhdfcbank-UTIB0000789-299752882001-UPI,BigBasket,Groceries
+UPI/DR/826330434839/BIGBASKET/HDFC/bigbasket@oksbi/Order 86205,BigBasket,Groceries
+UPI/DR/986828288072/BLINKIT/ICIC/blinkit@paytm/Payment,Blinkit,Groceries
+UPI-BLINKIT-blinkit@okaxis-YESB0000262-227918058887-UPI,Blinkit,Groceries
+UPI/DR/180334018780/BLINKIT/YESB/blinkit@okhdfcbank/Order 59898,Blinkit,Groceries
+UPI/DR/478878384837/ZEPTO/SBIN/zepto@okaxis/Payment,Zepto,Groceries
+UPI-ZEPTO-zepto@ybl-ICIC0000456-675136134125-UPI,Zepto,Groceries
+UPI/DR/242731672326/ZEPTO/UTIB/zepto@okhdfcbank/Order 56355,Zepto,Groceries
+UPI/DR/505877065894/DMART/YESB/dmart@paytm/Payment,DMart,Groceries
+UPI-DMART-dmart@ybl-YESB0000262-311440242646-UPI,DMart,Groceries
+UPI/DR/288975140261/DMART/HDFC/dmart@ybl/Order 14193,DMart,Groceries
+UPI/DR/417058649208/RELIANCE FRESH/YESB/reliancefres@ibl/Payment,Reliance Fresh,Groceries
+UPI-RELIANCE FRESH-reliancefres@ybl-SBIN0001234-240234483478-UPI,Reliance Fresh,Groceries
+UPI/DR/245040008838/RELIANCE FRESH/ICIC/reliancefres@okaxis/Order 71678,Reliance Fresh,Groceries
+UPI/DR/843353265020/UBER/ICIC/uber@ybl/Payment,Uber,Transport
+UPI-UBER-uber@ibl-KKBK0000321-462016849340-UPI,Uber,Transport
+UPI/DR/722470455853/UBER/YESB/uber@oksbi/Order 35205,Uber,Transport
+UPI/DR/174833801412/OLA CABS/ICIC/olacabs@okhdfcbank/Payment,Ola,Transport
+UPI-OLA CABS-olacabs@ybl-UTIB0000789-604431982965-UPI,Ola,Transport
+UPI/DR/724920868288/OLA CABS/UTIB/olacabs@ybl/Order 93100,Ola,Transport
+UPI/DR/516780083740/RAPIDO/SBIN/rapido@okhdfcbank/Payment,Rapido,Transport
+UPI-RAPIDO-rapido@ibl-YESB0000262-881817414333-UPI,Rapido,Transport
+UPI/DR/776174093192/RAPIDO/HDFC/rapido@oksbi/Order 49920,Rapido,Transport
+UPI/DR/074137484777/IRCTC/ICIC/irctc@ybl/Payment,IRCTC,Transport
+UPI-IRCTC-irctc@okaxis-UTIB0000789-417047187463-UPI,IRCTC,Transport
+UPI/DR/319128452984/IRCTC/YESB/irctc@ibl/Order 53776,IRCTC,Transport
+UPI/DR/207764265651/REDBUS/YESB/redbus@oksbi/Payment,redBus,Transport
+UPI-REDBUS-redbus@oksbi-YESB0000262-561304451669-UPI,redBus,Transport
+UPI/DR/156404104234/REDBUS/ICIC/redbus@paytm/Order 53560,redBus,Transport
+UPI/DR/688310679247/INDIAN OIL/KKBK/indianoil@ybl/Payment,Indian Oil,Transport
+UPI-INDIAN OIL-indianoil@okaxis-UTIB0000789-276544446347-UPI,Indian Oil,Transport
+UPI/DR/861221387837/INDIAN OIL/HDFC/indianoil@okhdfcbank/Order 62833,Indian Oil,Transport
+UPI/DR/258153549306/JIO PREPAID/YESB/jioprepaid@okhdfcbank/Payment,Jio,Utilities
+UPI-JIO PREPAID-jioprepaid@ibl-ICIC0000456-836450749528-UPI,Jio,Utilities
+UPI/DR/831436676402/JIO PREPAID/YESB/jioprepaid@okhdfcbank/Order 79701,Jio,Utilities
+UPI/DR/877313228171/AIRTEL/ICIC/airtel@paytm/Payment,Airtel,Utilities
+UPI-AIRTEL-airtel@ybl-YESB0000262-239042486111-UPI,Airtel,Utilities
+UPI/DR/489364390084/AIRTEL/ICIC/airtel@oksbi/Order 53783,Airtel,Utilities
+UPI/DR/306400376143/BSES RAJDHANI/UTIB/bsesrajdhani@ibl/Payment,BSES Rajdhani,Utilities
+UPI-BSES RAJDHANI-bsesrajdhani@oksbi-ICIC0000456-370565630481-UPI,BSES Rajdhani,Utilities
+UPI/DR/373433734419/BSES RAJDHANI/ICIC/bsesrajdhani@paytm/Order 23760,BSES Rajdhani,Utilities
+UPI/DR/260309260026/TATA POWER/UTIB/tatapower@okhdfcbank/Payment,Tata Power,Utilities
+UPI-TATA POWER-tatapower@oksbi-KKBK0000321-112532870465-UPI,Tata Power,Utilities
+UPI/DR/572101415618/TATA POWER/SBIN/tatapower@okhdfcbank/Order 54610,Tata Power,Utilities
+UPI/DR/735873557063/MAHANAGAR GAS/KKBK/mahanagargas@ibl/Payment,Mahanagar Gas,Utilities
+UPI-MAHANAGAR GAS-mahanagargas@ybl-ICIC0000456-607104319554-UPI,Mahanagar Gas,Utilities
+UPI/DR/590454409103/MAHANAGAR GAS/YESB/mahanagargas@okhdfcbank/Order 76467,Mahanagar Gas,Utilities
+UPI/DR/720429355759/AMAZON/SBIN/amazon@ybl/Payment,Amazon,Shopping
+UPI-AMAZON-amazon@okaxis-UTIB0000789-623610788526-UPI,Amazon,Shopping
+UPI/DR/114913167723/AMAZON/SBIN/amazon@okhdfcbank/Order 79381,Amazon,Shopping
+UPI/DR/449454437323/FLIPKART/HDFC/flipkart@okaxis/Payment,Flipkart,Shopping
+UPI-FLIPKART-flipkart@oksbi-SBIN0001234-935164388317-UPI,Flipkart,Shopping
+UPI/DR/010737504310/FLIPKART/SBIN/flipkart@paytm/Order 93158,Flipkart,Shopping
+UPI/DR/794019953055/MYNTRA/SBIN/myntra@okaxis/Payment,Myntra,Shopping
+UPI-MYNTRA-myntra@okaxis-YESB0000262-409305652941-UPI,Myntra,Shopping
+UPI/DR/307871616828/MYNTRA/YESB/myntra@ibl/Order 26464,Myntra,Shopping
+UPI/DR/460495660536/AJIO/KKBK/ajio@ibl/Payment,Ajio,Shopping
+UPI-AJIO-ajio@okaxis-ICIC0000456-062611695722-UPI,Ajio,Shopping
+UPI/DR/008261995822/AJIO/HDFC/ajio@oksbi/Order 28211,Ajio,Shopping
+UPI/DR/734207509619/NETFLIX/ICIC/netflix@ibl/Payment,Netflix,Entertainment
+UPI-NETFLIX-netflix@ibl-SBIN0001234-396937293068-UPI,Netflix,Entertainment
+UPI/DR/265123308051/NETFLIX/ICIC/netflix@paytm/Order 78464,Netflix,Entertainment
+UPI/DR/366578720097/SPOTIFY/UTIB/spotify@okhdfcbank/Payment,Spotify,Entertainment
+UPI-SPOTIFY-spotify@okhdfcbank-SBIN0001234-972761125651-UPI,Spotify,Entertainment
+UPI/DR/788002158108/SPOTIFY/ICIC/spotify@ibl/Order 20191,Spotify,Entertainment
+UPI/DR/274231594259/BOOKMYSHOW/SBIN/bookmyshow@oksbi/Payment,BookMyShow,Entertainment
+UPI-BOOKMYSHOW-bookmyshow@okaxis-ICIC0000456-487394983550-UPI,BookMyShow,Entertainment
+UPI/DR/326245624180/BOOKMYSHOW/KKBK/bookmyshow@oksbi/Order 78891,BookMyShow,Entertainment
+UPI/DR/865465925517/DISNEY HOTSTAR/HDFC/disneyhotsta@okaxis/Payment,Disney+ Hotstar,Entertainment
+UPI-DISNEY HOTSTAR-disneyhotsta@paytm-SBIN0001234-048449500324-UPI,Disney+ Hotstar,Entertainment
+UPI/DR/966850273900/DISNEY HOTSTAR/YESB/disneyhotsta@ybl/Order 95418,Disney+ Hotstar,Entertainment
+UPI/DR/836949235972/ZERODHA/HDFC/zerodha@okaxis/Payment,Zerodha,Investment
+UPI-ZERODHA-zerodha@okaxis-YESB0000262-271124640085-UPI,Zerodha,Investment
+UPI/DR/997987320008/ZERODHA/YESB/zerodha@okhdfcbank/Order 23201,Zerodha,Investment
+UPI/DR/983263898692/GROWW/YESB/groww@paytm/Payment,Groww,Investment
+UPI-GROWW-groww@ybl-HDFC0000123-407806671723-UPI,Groww,Investment
+UPI/DR/143015404868/GROWW/HDFC/groww@oksbi/Order 31802,Groww,Investment
+UPI/DR/332536593687/LIC OF INDIA/HDFC/licofindia@okhdfcbank/Payment,LIC,Investment
+UPI-LIC OF INDIA-licofindia@ibl-UTIB0000789-006394369919-UPI,LIC,Investment
+UPI/DR/220011925200/LIC OF INDIA/YESB/licofindia@okaxis/Order 01019,LIC,Investment
+UPI/DR/381613331001/APOLLO PHARMACY/HDFC/apollopharma@ibl/Payment,Apollo Pharmacy,Medical
+UPI-APOLLO PHARMACY-apollopharma@oksbi-KKBK0000321-712134556405-UPI,Apollo Pharmacy,Medical
+UPI/DR/440559874906/APOLLO PHARMACY/YESB/apollopharma@okhdfcbank/Order 81570,Apollo Pharmacy,Medical
+UPI/DR/931942608340/TATA 1MG/UTIB/tata1mg@ybl/Payment,Tata 1mg,Medical
+UPI-TATA 1MG-tata1mg@okhdfcbank-HDFC0000123-172795849243-UPI,Tata 1mg,Medical
+UPI/DR/372117815516/TATA 1MG/ICIC/tata1mg@ibl/Order 16053,Tata 1mg,Medical
+UPI/DR/468826372899/PRACTO/HDFC/practo@ibl/Payment,Practo,Medical
+UPI-PRACTO-practo@oksbi-YESB0000262-958278527749-UPI,Practo,Medical
+UPI/DR/325738344922/PRACTO/SBIN/practo@ibl/Order 59852,Practo,Medical
+UPI/DR/534121362244/PHARMEASY/SBIN/pharmeasy@okhdfcbank/Payment,PharmEasy,Medical
+UPI-PHARMEASY-pharmeasy@okaxis-HDFC0000123-114367006638-UPI,PharmEasy,Medical
+UPI/DR/470249603699/PHARMEASY/KKBK/pharmeasy@ibl/Order 63932,PharmEasy,Medical
+UPI/DR/176541636246/NOBROKER RENT/KKBK/nobrokerrent@okhdfcbank/Payment,NoBroker,Rent & Housing
+UPI-NOBROKER RENT-nobrokerrent@ybl-ICIC0000456-968250671048-UPI,NoBroker,Rent & Housing
+UPI/DR/323851978378/NOBROKER RENT/YESB/nobrokerrent@ibl/Order 58567,NoBroker,Rent & Housing
+UPI/DR/268195044660/UDEMY/SBIN/udemy@ybl/Payment,Udemy,Education
+UPI-UDEMY-udemy@okhdfcbank-YESB0000262-659413468367-UPI,Udemy,Education
+UPI/DR/322137832567/UDEMY/HDFC/udemy@paytm/Order 27534,Udemy,Education
+UPI/DR/646270453457/COURSERA/KKBK/coursera@okhdfcbank/Payment,Coursera,Education
+UPI-COURSERA-coursera@paytm-ICIC0000456-152460195285-UPI,Coursera,Education
+UPI/DR/900314491923/COURSERA/SBIN/coursera@okhdfcbank/Order 52368,Coursera,Education
+UPI/DR/991843738171/BYJUS/SBIN/byjus@paytm/Payment,BYJU'S,Education
+UPI-BYJUS-byjus@oksbi-YESB0000262-632778077273-UPI,BYJU'S,Education
+UPI/DR/728902579747/BYJUS/HDFC/byjus@okhdfcbank/Order 61250,BYJU'S,Education
+UPI/DR/905187720362/RAHUL SHARMA/YESB/rahulsharma@oksbi/Payment,Rahul Sharma,Transfers
+UPI-RAHUL SHARMA-rahulsharma@ibl-YESB0000262-557883465648-UPI,Rahul Sharma,Transfers
+UPI/DR/044576584853/RAHUL SHARMA/KKBK/rahulsharma@okhdfcbank/Order 15354,Rahul Sharma,Transfers
+UPI/DR/910686890641/PRIYA VERMA/SBIN/priyaverma@ybl/Payment,Priya Verma,Transfers
+UPI-PRIYA VERMA-priyaverma@okaxis-YESB0000262-790889692913-UPI,Priya Verma,Transfers
+UPI/DR/072120610524/PRIYA VERMA/UTIB/priyaverma@ibl/Order 44260,Priya Verma,Transfers
+UPI/DR/069907980169/AMIT KUMAR/HDFC/amitkumar@ibl/Payment,Amit Kumar,Transfers
+UPI-AMIT KUMAR-amitkumar@okhdfcbank-ICIC0000456-106992768117-UPI,Amit Kumar,Transfers
+UPI/DR/320600113127/AMIT KUMAR/YESB/amitkumar@oksbi/Order 93720,Amit Kumar,Transfers
+NEFT-HDFCN52148774000-ACME TECH PVT LTD-SALARY,Acme Tech,Income
+NEFT-HDFCN00916449279-ACME TECH PVT LTD-SALARY,Acme Tech,Income
+NEFT-HDFCN05597722152-ACME TECH PVT LTD-SALARY,Acme Tech,Income
+CREDIT INTEREST CAPITALISED,Bank Interest,Income
+ATM WDL 4321XXXXXX1234 DELHI,ATM Withdrawal,Miscellaneous
