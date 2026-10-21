@@ -1,0 +1,69 @@
+{
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "transactions": 137,
+  "distinct_keys_sent_to_model": 47,
+  "llm_calls": 2,
+  "fallbacks": 0,
+  "category_accuracy": 0.927,
+  "name_accuracy": 0.985,
+  "prompt_tokens": 2944,
+  "completion_tokens": 5272,
+  "tokens_per_1000_transactions": 59971,
+  "misses": [
+    {
+      "raw": "UPI/DR/505877065894/DMART/YESB/dmart@paytm/Payment",
+      "expected": "DMart / Groceries",
+      "got": "DMart / Shopping (0.95)"
+    },
+    {
+      "raw": "UPI-DMART-dmart@ybl-YESB0000262-311440242646-UPI",
+      "expected": "DMart / Groceries",
+      "got": "DMart / Shopping (0.95)"
+    },
+    {
+      "raw": "UPI/DR/288975140261/DMART/HDFC/dmart@ybl/Order 14193",
+      "expected": "DMart / Groceries",
+      "got": "DMart / Shopping (0.95)"
+    },
+    {
+      "raw": "UPI/DR/688310679247/INDIAN OIL/KKBK/indianoil@ybl/Payment",
+      "expected": "Indian Oil / Transport",
+      "got": "Indian Oil / Utilities (0.85)"
+    },
+    {
+      "raw": "UPI-INDIAN OIL-indianoil@okaxis-UTIB0000789-276544446347-UPI",
+      "expected": "Indian Oil / Transport",
+      "got": "Indian Oil / Utilities (0.85)"
+    },
+    {
+      "raw": "UPI/DR/861221387837/INDIAN OIL/HDFC/indianoil@okhdfcbank/Order 62833",
+      "expected": "Indian Oil / Transport",
+      "got": "Indian Oil / Utilities (0.85)"
+    },
+    {
+      "raw": "UPI/DR/332536593687/LIC OF INDIA/HDFC/licofindia@okhdfcbank/Payment",
+      "expected": "LIC / Investment",
+      "got": "LIC of India / Miscellaneous (0.60)"
+    },
+    {
+      "raw": "UPI-LIC OF INDIA-licofindia@ibl-UTIB0000789-006394369919-UPI",
+      "expected": "LIC / Investment",
+      "got": "LIC of India / Miscellaneous (0.60)"
+    },
+    {
+      "raw": "UPI/DR/220011925200/LIC OF INDIA/YESB/licofindia@okaxis/Order 01019",
+      "expected": "LIC / Investment",
+      "got": "LIC of India / Miscellaneous (0.60)"
+    },
+    {
+      "raw": "CREDIT INTEREST CAPITALISED",
+      "expected": "Bank Interest / Income",
+      "got": "Interest Capitalised / Miscellaneous (0.40)"
+    },
+    {
+      "raw": "ATM WDL 4321XXXXXX1234 DELHI",
+      "expected": "ATM Withdrawal / Miscellaneous",
+      "got": "Wdl Delhi / Miscellaneous (0.60)"
+    }
+  ]
+}
