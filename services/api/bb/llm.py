@@ -13,6 +13,11 @@ class LlmUnavailable(Exception):
     """The model API failed (network, auth, quota). Never cache anything when this happens."""
 
 
+# Reasoning models consume tokens in the completion window.
+# Keep a single constant so every call uses a budget large enough for thinking + output.
+MAX_TOKENS = 8000
+
+
 @dataclass
 class Usage:
     prompt_tokens: int = 0
@@ -78,11 +83,15 @@ class TokenFactoryClient:
                 model=self.model,
                 messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
                 temperature=0,
-                max_tokens=4000,
+                max_tokens=MAX_TOKENS,
             )
         except Exception as exc:  # network, auth, quota: surface as one error type
             raise LlmUnavailable(f"{type(exc).__name__}: {exc}") from exc
-        text = reply.choices[0].message.content or ""
+        choice = reply.choices[0]
+        text = (choice.message.content or "").strip()
+        finish_reason = getattr(choice, "finish_reason", None)
+        if not text or finish_reason == "length":
+            raise LlmUnavailable(f"empty content or length finish_reason: {finish_reason}")
         usage = Usage(
             prompt_tokens=getattr(reply.usage, "prompt_tokens", 0) or 0,
             completion_tokens=getattr(reply.usage, "completion_tokens", 0) or 0,
