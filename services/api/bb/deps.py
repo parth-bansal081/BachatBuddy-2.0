@@ -8,6 +8,7 @@ from supabase import Client, create_client
 
 from .config import env
 from .llm import LlmClient, LlmUnavailable, TokenFactoryClient
+from .data import SupabaseDataStore
 from .store import SupabaseStore
 
 
@@ -15,6 +16,7 @@ from .store import SupabaseStore
 class Caller:
     user_id: str
     store: SupabaseStore
+    data: SupabaseDataStore | None = None
 
 
 def get_caller(authorization: str | None = Header(default=None)) -> Caller:
@@ -32,11 +34,20 @@ def get_caller(authorization: str | None = Header(default=None)) -> Caller:
     if user is None or user.user is None:
         raise HTTPException(status_code=401, detail="Invalid token")
     client.postgrest.auth(token)  # all queries now run as this user (RLS applies)
-    return Caller(user_id=user.user.id, store=SupabaseStore(client, user.user.id))
+    uid = user.user.id
+    return Caller(user_id=uid, store=SupabaseStore(client, uid), data=SupabaseDataStore(client, uid))
 
 
 def get_llm() -> LlmClient:
     try:
         return TokenFactoryClient()
+    except LlmUnavailable as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+def get_smart_llm() -> LlmClient:
+    """The stronger model, used for turning plain language into rules."""
+    try:
+        return TokenFactoryClient(model=env("TOKEN_FACTORY_MODEL_SMART") or env("TOKEN_FACTORY_MODEL"))
     except LlmUnavailable as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc

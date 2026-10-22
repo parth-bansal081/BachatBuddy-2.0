@@ -1,0 +1,9 @@
+{
+  "name": "Starter plan",
+  "rules": [
+    { "type": "save_percent", "percent": 10, "label": "Savings" },
+    { "type": "category_cap", "category": "Food & Dining", "monthly_limit": 1500 },
+    { "type": "category_cap", "category": "Shopping", "monthly_limit": 4000 },
+    { "type": "bill_reserve", "name": "Rent", "amount": 6000, "due_day": 1 }
+  ]
+}

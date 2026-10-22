@@ -1,0 +1,15 @@
+[
+  {"lang": "en", "text": "Save 10% of every income", "expected": {"rules": [{"type": "save_percent", "percent": 10}], "unsupported": 0}},
+  {"lang": "en", "text": "Keep food spending under 3000 a month", "expected": {"rules": [{"type": "category_cap", "category": "Food & Dining", "monthly_limit": 3000}], "unsupported": 0}},
+  {"lang": "en", "text": "Rent of 6000 is due on the 1st every month, keep it aside", "expected": {"rules": [{"type": "bill_reserve", "amount": 6000, "due_day": 1}], "unsupported": 0}},
+  {"lang": "en", "text": "Save 20% of my salary and keep groceries under 5k", "expected": {"rules": [{"type": "save_percent", "percent": 20}, {"type": "category_cap", "category": "Groceries", "monthly_limit": 5000}], "unsupported": 0}},
+  {"lang": "en", "text": "Don't spend more than 2000 on shopping and 1500 on entertainment monthly", "expected": {"rules": [{"type": "category_cap", "category": "Shopping", "monthly_limit": 2000}, {"type": "category_cap", "category": "Entertainment", "monthly_limit": 1500}], "unsupported": 0}},
+  {"lang": "en", "text": "Keep 1,200 aside for my phone recharge on the 15th", "expected": {"rules": [{"type": "bill_reserve", "amount": 1200, "due_day": 15}], "unsupported": 0}},
+  {"lang": "hinglish", "text": "har income ka 10% bachao", "expected": {"rules": [{"type": "save_percent", "percent": 10}], "unsupported": 0}},
+  {"lang": "hinglish", "text": "khana pe 3000 se zyada mat kharch karo", "expected": {"rules": [{"type": "category_cap", "category": "Food & Dining", "monthly_limit": 3000}], "unsupported": 0}},
+  {"lang": "hinglish", "text": "rent 6000 har mahine 1 tarikh ko aside rakho aur transport pe 2000 ka limit", "expected": {"rules": [{"type": "bill_reserve", "amount": 6000, "due_day": 1}, {"type": "category_cap", "category": "Transport", "monthly_limit": 2000}], "unsupported": 0}},
+  {"lang": "hinglish", "text": "mujhe salary ka 15% save karna hai aur bijli ka bill 1800 ka 10 tarikh ko aata hai", "expected": {"rules": [{"type": "save_percent", "percent": 15}, {"type": "bill_reserve", "amount": 1800, "due_day": 10}], "unsupported": 0}},
+  {"lang": "hinglish", "text": "dawai pe 4k aur padhai pe 1.5k se zyada nahi", "expected": {"rules": [{"type": "category_cap", "category": "Medical", "monthly_limit": 4000}, {"type": "category_cap", "category": "Education", "monthly_limit": 1500}], "unsupported": 0}},
+  {"lang": "en", "text": "Invest 5000 in mutual funds every month", "expected": {"rules": [], "unsupported": 1}},
+  {"lang": "en", "text": "Save 10% and no Zomato after 10pm", "expected": {"rules": [{"type": "save_percent", "percent": 10}], "unsupported": 1}}
+]
