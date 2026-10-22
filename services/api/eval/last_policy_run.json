@@ -1,0 +1,14 @@
+{
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "cases": 13,
+  "exact_match": 1.0,
+  "by_language": {
+    "en": 1.0,
+    "hinglish": 1.0
+  },
+  "rule_precision": 1.0,
+  "rule_recall": 1.0,
+  "prompt_tokens": 9329,
+  "completion_tokens": 3187,
+  "failures": []
+}
