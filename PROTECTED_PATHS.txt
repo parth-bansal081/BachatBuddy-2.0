@@ -14,3 +14,4 @@ scripts/install-hooks.sh
 scripts/protect-freeze.sh
 scripts/port-setu.sh
 .github/workflows/verify-protected.yml
+src/hooks/useSetuCallback.ts
