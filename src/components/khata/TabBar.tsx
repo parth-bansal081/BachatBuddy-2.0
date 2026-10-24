@@ -4,7 +4,7 @@ interface TabItem {
 }
 
 interface TabBarProps {
-  items: TabItem[];
+  items: readonly TabItem[];
   activeId: string;
   onSelect: (id: string) => void;
 }

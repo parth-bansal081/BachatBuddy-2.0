@@ -5,6 +5,7 @@ import { join, extname } from "path";
 const pathsToScan = [
   "src/components/khata",
   "src/pages/Preview.tsx",
+  "src/pages/Dashboard.tsx",
 ];
 
 const forbiddenPatterns = [
