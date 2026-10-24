@@ -7,6 +7,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
+from supabase import Client
 from .config import env
 from .deps import Caller, get_caller, get_llm, get_smart_llm
 from .enrich import enrich_user
@@ -15,6 +16,7 @@ from .policy.compiler import CompileResult, compile_policy
 from .policy.engine import BacktestResult, SafeToSpend, backtest, safe_to_spend
 from .policy.models import Policy
 from .schemas import EnrichResult
+from .actions import generate_actions, get_pending_actions, decide_action
 
 load_dotenv()
 
@@ -60,6 +62,27 @@ class SaveResponse(BaseModel):
     id: str
 
 
+class ActionDecision(BaseModel):
+    decision: str = Field(pattern="^(approved|rejected)$")
+
+
+class ActionOut(BaseModel):
+    id: str
+    user_id: str
+    kind: str
+    label: str
+    amount: str
+    month: str
+    status: str
+    created_at: str
+    decided_at: str | None = None
+
+
+class GenerateResponse(BaseModel):
+    month: str
+    actions: list[ActionOut]
+
+
 def _data(caller: Caller):  # the data store is always set outside of tests
     if caller.data is None:
         raise HTTPException(status_code=500, detail="Data store not available")
@@ -102,3 +125,39 @@ def policy_safe_to_spend(caller: Caller = Depends(get_caller)) -> SafeToSpend:
     if found is None:
         raise HTTPException(status_code=404, detail="No active policy yet")
     return safe_to_spend(found[0], data.enriched_transactions(), date.today())
+
+
+def _data_client(caller: Caller) -> Client:
+    if caller.data is None:
+        raise HTTPException(status_code=500, detail="Data store not available")
+    return caller.data.client
+
+
+@app.post("/actions/generate", response_model=GenerateResponse)
+async def actions_generate(caller: Caller = Depends(get_caller)) -> GenerateResponse:
+    actions = await generate_actions(_data_client(caller), caller.user_id)
+    month = actions[0]["month"] if actions else ""
+    return GenerateResponse(month=month, actions=[ActionOut.model_validate(a) for a in actions])
+
+
+@app.get("/actions/pending", response_model=list[ActionOut])
+async def actions_pending(caller: Caller = Depends(get_caller)) -> list[ActionOut]:
+    actions = await get_pending_actions(_data_client(caller), caller.user_id)
+    return [ActionOut.model_validate(a) for a in actions]
+
+
+@app.post("/actions/{action_id}/decision", response_model=ActionOut)
+async def actions_decide(
+    action_id: str,
+    body: ActionDecision,
+    caller: Caller = Depends(get_caller),
+) -> ActionOut:
+    try:
+        action = await decide_action(_data_client(caller), caller.user_id, action_id, body.decision)
+    except ValueError as exc:
+        if str(exc) == "already_decided":
+            raise HTTPException(status_code=409, detail="Action already decided")
+        raise HTTPException(status_code=400, detail=str(exc))
+    if action is None:
+        raise HTTPException(status_code=404, detail="Action not found")
+    return ActionOut.model_validate(action)

@@ -11,6 +11,9 @@
 | POST | /policy | Yes (Bearer) | bb/main.py:84 | policy_save() |
 | GET | /policy/active | Yes (Bearer) | bb/main.py:89 | policy_active() |
 | GET | /policy/safe-to-spend | Yes (Bearer) | bb/main.py:98 | policy_safe_to_spend() |
+| POST | /actions/generate | Yes (Bearer) | bb/main.py:136 | actions_generate() |
+| GET | /actions/pending | Yes (Bearer) | bb/main.py:143 | actions_pending() |
+| POST | /actions/{id}/decision | Yes (Bearer) | bb/main.py:149 | actions_decide() |
 
 ---
 
@@ -165,6 +168,81 @@
   - 401: Missing or invalid bearer token
   - 404: No active policy yet
 
+### POST /actions/generate
+- **Auth required**: Yes (Bearer token)
+- **Request body**: None
+- **Response** (`GenerateResponse`):
+  ```json
+  {
+    "month": "YYYY-MM",
+    "actions": [
+      {
+        "id": "uuid",
+        "user_id": "uuid",
+        "kind": "set_aside",
+        "label": "string",
+        "amount": "string (decimal)",
+        "month": "YYYY-MM",
+        "status": "pending",
+        "created_at": "ISO timestamp",
+        "decided_at": "ISO timestamp | null"
+      }
+    ]
+  }
+  ```
+- **Error cases**:
+  - 401: Missing or invalid bearer token
+  - 404: No active policy or no transactions yet
+  - 502: Database error
+
+### GET /actions/pending
+- **Auth required**: Yes (Bearer token)
+- **Request body**: None
+- **Response** (array of `ActionOut`):
+  ```json
+  [
+    {
+      "id": "uuid",
+      "user_id": "uuid",
+      "kind": "set_aside",
+      "label": "string",
+      "amount": "string (decimal)",
+      "month": "YYYY-MM",
+      "status": "pending",
+      "created_at": "ISO timestamp",
+      "decided_at": "ISO timestamp | null"
+    }
+  ]
+  ```
+- **Error cases**:
+  - 401: Missing or invalid bearer token
+
+### POST /actions/{id}/decision
+- **Auth required**: Yes (Bearer token)
+- **Request body** (`ActionDecision`):
+  ```json
+  { "decision": "approved" | "rejected" }
+  ```
+- **Response** (`ActionOut`):
+  ```json
+  {
+    "id": "uuid",
+    "user_id": "uuid",
+    "kind": "set_aside",
+    "label": "string",
+    "amount": "string (decimal)",
+    "month": "YYYY-MM",
+    "status": "approved | rejected",
+    "created_at": "ISO timestamp",
+    "decided_at": "ISO timestamp"
+  }
+  ```
+- **Error cases**:
+  - 401: Missing or invalid bearer token
+  - 404: Action not found or not owned by user
+  - 409: Action already decided
+  - 422: Invalid decision value
+
 ---
 
 ## Environment Variables (Names Only)
@@ -207,9 +285,9 @@ uvicorn bb.main:app --reload --port 8000
 |---------|--------|----------|
 | (a) Compile plain-language text (English or Hinglish) into a rule set | **IMPLEMENTED** | `POST /policy/compile` in `bb/main.py:69` calls `compile_policy()` from `bb/policy/compiler.py` |
 | (b) Run a backtest on stored transactions | **IMPLEMENTED** | `POST /policy/backtest` in `bb/main.py:79` calls `backtest()` from `bb/policy/engine.py` |
-| (c) List proposed actions awaiting approval and record approve/reject | **NOT IMPLEMENTED** | No route exists for listing pending actions or recording approve/reject. `POST /policy` only saves a policy; there is no approval workflow or pending actions table. |
+| (c) List proposed actions awaiting approval and record approve/reject | **IMPLEMENTED** | `GET /actions/pending` and `POST /actions/{id}/decision` in `bb/main.py:143,149` |
 | (d) Trigger enrichment | **IMPLEMENTED** | `POST /enrich` in `bb/main.py:37` calls `enrich_user()` from `bb/enrich.py` |
 
 ---
 
-*Generated from code in `services/api/bb/` as of task P3-05. This document is read-only; do not edit the implementation to match it.*
+*Generated from code in `services/api/bb/` as of task P4-01. This document is read-only; do not edit the implementation to match it.*
