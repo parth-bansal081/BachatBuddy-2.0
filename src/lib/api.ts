@@ -136,6 +136,27 @@ export interface SafeToSpend {
   notes: string[];
 }
 
+export interface ActionOut {
+  id: string;
+  user_id: string;
+  kind: string;
+  label: string;
+  amount: string;
+  month: string;
+  status: string;
+  created_at: string;
+  decided_at: string | null;
+}
+
+export interface GenerateResponse {
+  month: string;
+  actions: ActionOut[];
+}
+
+export interface ActionDecision {
+  decision: "approved" | "rejected";
+}
+
 export const api = {
   enrich: () => apiFetch<EnrichResult>("/enrich", { method: "POST" }),
   compile: (text: string) =>
@@ -155,4 +176,12 @@ export const api = {
     }),
   active: () => apiFetch<ActivePolicyResponse>("/policy/active"),
   safeToSpend: () => apiFetch<SafeToSpend>("/policy/safe-to-spend"),
+  actionsGenerate: () =>
+    apiFetch<GenerateResponse>("/actions/generate", { method: "POST" }),
+  actionsPending: () => apiFetch<ActionOut[]>("/actions/pending"),
+  actionsDecide: (id: string, decision: "approved" | "rejected") =>
+    apiFetch<ActionOut>(`/actions/${id}/decision`, {
+      method: "POST",
+      body: JSON.stringify({ decision }),
+    }),
 };

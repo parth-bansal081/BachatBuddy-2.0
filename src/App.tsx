@@ -9,6 +9,7 @@ import Dashboard from "@/pages/Dashboard";
 import LoadingInsights from "@/pages/LoadingInsights";
 import Preview from "@/pages/Preview";
 import Policy from "@/pages/Policy";
+import Approve from "@/pages/Approve";
 
 function Protected({ session, children }: { session: Session | null; children: ReactNode }) {
   if (!session) return <Navigate to="/auth" replace />;
@@ -68,6 +69,14 @@ export default function App() {
           element={
             <Protected session={session}>
               <Policy />
+            </Protected>
+          }
+        />
+        <Route
+          path="/approve"
+          element={
+            <Protected session={session}>
+              <Approve />
             </Protected>
           }
         />

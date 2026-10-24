@@ -7,7 +7,9 @@ const pathsToScan = [
   "src/pages/Preview.tsx",
   "src/pages/Dashboard.tsx",
   "src/pages/Policy.tsx",
+  "src/pages/Approve.tsx",
   "src/lib/api.ts",
+  "src/lib/upi.ts",
 ];
 
 const forbiddenPatterns = [
