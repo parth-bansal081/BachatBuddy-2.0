@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #ffffff;
-  color: #111111;
+@layer base {
+  body {
+    margin: 0;
+    background-color: #F4EDDC;
+    color: #1B1A17;
+    font-family: "Noto Serif", "Noto Serif Devanagari", serif;
+  }
 }

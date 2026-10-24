@@ -1,8 +1,6 @@
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 
-// PLACEHOLDER palette so the ported (shadcn) components are readable in Phase 0.
-// The real design tokens replace this in the UI phase.
 const config: Config = {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
@@ -20,6 +18,17 @@ const config: Config = {
         border: "#e5e7eb",
         input: "#e5e7eb",
         ring: "#111111",
+        khata: {
+          paper: "#F4EDDC",
+          ink: "#1B1A17",
+          vermilion: "#C8341F",
+          muted: "#5E574A",
+          dim: "#B9B09C",
+        },
+      },
+      fontFamily: {
+        khata: ["Noto Serif", "Noto Serif Devanagari", "serif"],
+        num: ["IBM Plex Mono", "monospace"],
       },
       borderRadius: { lg: "0.5rem", md: "0.375rem", sm: "0.25rem" },
     },
