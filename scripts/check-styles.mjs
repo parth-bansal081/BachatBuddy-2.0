@@ -6,6 +6,8 @@ const pathsToScan = [
   "src/components/khata",
   "src/pages/Preview.tsx",
   "src/pages/Dashboard.tsx",
+  "src/pages/Policy.tsx",
+  "src/lib/api.ts",
 ];
 
 const forbiddenPatterns = [

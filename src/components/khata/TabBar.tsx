@@ -16,7 +16,7 @@ export function TabBar({ items, activeId, onSelect }: TabBarProps) {
         <button
           key={item.id}
           onClick={() => onSelect(item.id)}
-          className={`font-num text-sm px-3 py-2 border-b-3 transition-colors ${
+          className={`font-num text-sm px-3 min-h-12 border-b-3 ${
             item.id === activeId
               ? "text-khata-vermilion border-khata-vermilion"
               : "text-khata-muted hover:text-khata-ink border-transparent"
