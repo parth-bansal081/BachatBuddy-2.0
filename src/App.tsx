@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import Auth from "@/pages/Auth";
 import Dashboard from "@/pages/Dashboard";
 import LoadingInsights from "@/pages/LoadingInsights";
+import Preview from "@/pages/Preview";
 
 function Protected({ session, children }: { session: Session | null; children: ReactNode }) {
   if (!session) return <Navigate to="/auth" replace />;
@@ -51,6 +52,16 @@ export default function App() {
           }
         />
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        {import.meta.env.DEV && (
+          <Route
+            path="/preview"
+            element={
+              <Protected session={session}>
+                <Preview />
+              </Protected>
+            }
+          />
+        )}
       </Routes>
     </>
   );
