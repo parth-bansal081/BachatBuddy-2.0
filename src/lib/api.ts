@@ -79,7 +79,6 @@ export interface BacktestResult {
   events: EventOut[];
   total_income: number;
   total_spend: number;
-  total_saved: number;
   total_reserved: number;
   cap_breaches: number;
   over_cap_total: number;

@@ -8,7 +8,6 @@ import { LedgerRow } from "@/components/khata/LedgerRow";
 import { CapBar } from "@/components/khata/CapBar";
 import { StatePanel } from "@/components/khata/StatePanel";
 import { Stamp } from "@/components/khata/Stamp";
-import { formatInr } from "@/lib/format";
 import {
   api,
   type CompileResult,
@@ -98,9 +97,9 @@ export default function Policy() {
       return `${rule.label}: ${rule.percent}% of every income credit`;
     }
     if (rule.type === "category_cap") {
-      return `${rule.category} capped at ${formatInr(rule.monthly_limit)}/month`;
+      return `${rule.category} capped at ${rule.monthly_limit.toLocaleString("en-IN")}/month`;
     }
-    return `${rule.name}: ${formatInr(rule.amount)} reserved for the ${rule.due_day}${getOrdinal(rule.due_day)} of each month`;
+    return `${rule.name}: ${rule.amount.toLocaleString("en-IN")} reserved for the ${rule.due_day}${getOrdinal(rule.due_day)} of each month`;
   };
 
   return (
@@ -185,19 +184,22 @@ export default function Policy() {
               <>
                 <SectionLabel>BACKTEST</SectionLabel>
                 <SafeBand
-                  amount={backtestResult.headline ? parseFloat(backtestResult.headline.match(/₹?([\d,]+)/)?.[1]?.replace(/,/g, "") ?? "0") : backtestResult.total_saved}
+                  display={backtestResult.headline}
                   label="EST. SAVED"
                   caption={`${backtestResult.months.length} month${backtestResult.months.length !== 1 ? "s" : ""} tested`}
                 />
                 <div className="space-y-2">
-                  {backtestResult.months.map((month) => (
-                    <CapBar
-                      key={month.month}
-                      label={month.month}
-                      spent={month.spend}
-                      cap={month.caps.reduce((sum, c) => sum + c.limit, 0)}
-                    />
-                  ))}
+                  {backtestResult.months.flatMap((month) =>
+                    month.caps.map((cap, i) => (
+                      <CapBar
+                        key={`${month.month}-${i}`}
+                        label={cap.category}
+                        spent={cap.spent}
+                        cap={cap.limit}
+                        stamp={cap.breached ? "OVER" : undefined}
+                      />
+                    ))
+                  )}
                   {backtestResult.events.map((event, i) => (
                     <LedgerRow
                       key={i}

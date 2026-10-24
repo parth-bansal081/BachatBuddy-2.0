@@ -1,17 +1,20 @@
 import { Money } from "./Money";
 
 interface SafeBandProps {
-  amount: number;
+  amount?: number;
   caption: string;
   note?: string;
   label?: string;
+  display?: string;
 }
 
-export function SafeBand({ amount, caption, note, label = "SAFE TO SPEND" }: SafeBandProps) {
+export function SafeBand({ amount, caption, note, label = "SAFE TO SPEND", display }: SafeBandProps) {
   return (
     <div className="bg-khata-ink text-khata-paper rounded-lg p-4">
       <div className="text-khata-dim font-num text-xs uppercase tracking-wider mb-1">{label}</div>
-      <div className="font-num text-3xl font-bold">{amount >= 0 ? "+" : ""}{amount.toLocaleString("en-IN")}</div>
+      <div className="font-num text-3xl font-bold">
+        {display ?? (amount !== undefined ? (amount >= 0 ? "+" : "") + amount.toLocaleString("en-IN") : "—")}
+      </div>
       <div className="text-khata-muted text-sm mt-1">{caption}</div>
       {note && <div className="text-khata-dim text-xs mt-1">{note}</div>}
     </div>
